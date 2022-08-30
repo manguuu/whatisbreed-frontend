@@ -4,7 +4,6 @@ import FileBox from "@/components/FileBox.vue";
 
 <template>
   <main>
-    <!-- <FileBox @childEvent="childEvent" /> -->
     <FileBox />
   </main>
 </template>

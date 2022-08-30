@@ -13,36 +13,42 @@
       <label for="fileform"> {{ msg }} </label>
     </div>
   </div>
-  <!-- <router-link
-    to="{path:'result', query:{res: this.res}}"
-    v-if="filelist.length !== 0"
-    >result</router-link
-  > -->
-  <button @click="buttonClick">button</button>
+  <button id="submit-btn" @click="buttonClick" v-if="this.flag === true">
+    Submit
+  </button>
 </template>
 
 <script>
+import { getPred } from "../views/api";
 const API_URL = "http://127.0.0.1:5173/api/";
-
+let pred = [];
+let filelist = [];
 export default {
-  components: {
-    // FileForm,
-  },
   data() {
     return {
-      filelist: [],
       filename: "",
       msg: "or browse",
+      flag: false,
+      pred: [],
+      prob: [],
     };
   },
   props: ["uploaded"],
   methods: {
+    fileFormatCheck(filename) {
+      var reg = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
+      if (!filename.match(reg)) {
+        alert("이미지 형식의 파일을 넣어주세요.");
+      }
+    },
+
     onChange() {
-      this.filelist = [...this.$refs.file.files];
+      filelist = [...this.$refs.file.files];
       this.handleFileChange();
     },
     async handleFileChange() {
-      const file = this.filelist[0];
+      const file = filelist[0];
+      this.fileFormatCheck(file.name);
       const form_data = new FormData();
       form_data.append("file", file);
       const res = await fetch(API_URL + "files/", {
@@ -50,16 +56,19 @@ export default {
         body: form_data,
       });
       if (res.ok) {
-        console.log("respons ok");
-        console.log(res);
         const resjson = await res.json();
         this.filename = resjson.filename;
-        console.log(resjson.filename);
+        pred = await getPred(this.filename);
+        pred.sort(function (a, b) {
+          return b.prob - a.prob;
+        });
+        pred = pred.slice(0, 3);
+        this.flag = true;
         this.msg = file.name;
       }
     },
     remove(i) {
-      this.filelist.splice(i, 1);
+      filelist.splice(i, 1);
     },
     dragover(e) {
       e.preventDefault();
@@ -70,10 +79,13 @@ export default {
       this.onChange();
     },
     buttonClick() {
+      const predJson = JSON.stringify(pred);
+      console.log(predJson);
       this.$router.push({
-        path: "/result",
+        path: "result",
         query: {
           filename: this.filename,
+          pred: predJson,
         },
       });
     },
@@ -118,5 +130,25 @@ export default {
 }
 .elements input[type="file"] {
   display: None;
+}
+
+#submit-btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  margin-top: 20px;
+  width: 50vw;
+  height: 3vw;
+  font-size: 2vw;
+  color: #e9e9e9;
+  border: solid;
+  border-color: #888888;
+  border-radius: 10px;
+  background: var(--button-bg-color);
+  min-width: 150px;
+  max-width: 600px;
 }
 </style>

@@ -1,48 +1,32 @@
 <script setup>
 import { RouterView } from "vue-router";
-// import HelloWorld from "./components/HelloWorld.vue";
-// import FileBox from "@/components/FileBox.vue";
-
 </script>
 
 <script>
-export default {
-  // components: { FileBox },
-  // data() {
-  //   return {
-  //     uploaded: false,
-  //   };
-  // },
-  // methods: {
-  //   childEvent() {
-  //     console.log("child event");
-  //     this.uploaded = true;
-  //   },
-  // },
-};
+
 </script>
 
 <template>
   <header>What is your dog?</header>
-  <!-- <Indicator msg="Put dog image on here" num="1" style="margin-left: 5vw"/> -->
-  <!-- <FileBox @childEvent="childEvent" /> -->
-  
-  <main></main>
   <RouterView />
 </template>
 
 <style scoped>
 header {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   line-height: 1.5;
+  margin: 3vw;
+  font-size: min(3vw, 30px);
+  color: #E9E9E9;
+  font-weight: bold;
 }
 
 @media (min-width: 1024px) {
   header {
     display: flex;
     flex-direction: column;
-    place-items: center;
+    place-items: left;
     padding-right: calc(var(--section-gap) / 2);
   }
 
