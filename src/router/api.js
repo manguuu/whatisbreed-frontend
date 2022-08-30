@@ -1,4 +1,4 @@
-const API_URL = "http://whatisbreed:80/";
+export const API_URL = "https://localhost:8888/api/";
 // let msg = "";
 
 export const getPred = async (filename) => {

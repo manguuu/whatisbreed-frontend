@@ -27,6 +27,7 @@ console.log(pred);
 </template>
 
 <script>
+import { API_URL } from "../router/api.js";
 export default {
   probs: {
     pred: Array,
@@ -40,7 +41,7 @@ export default {
   mounted() {
     const route = useRoute();
     const filename = route.query.filename;
-    const path = "http://whatisbreed:80/static";
+    const path = `${API_URL}static`;
     const originPath = `${path}/originImg/${filename}`;
     const limePath = `${path}/limeImg/${filename}`;
     document.querySelector("#origin-box").src = originPath;

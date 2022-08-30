@@ -15,7 +15,7 @@ defineProps({
 </template>
 
 <script>
-const API_URL = "http://whatisbreed:80";
+import { API_URL } from "../router/api.js"
 
 export default {
   methods: {

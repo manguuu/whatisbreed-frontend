@@ -21,8 +21,7 @@
 </template>
 
 <script>
-import { getPred } from "../views/api";
-const API_URL = "http://whatisbreed:80";
+import { getPred, API_URL } from "../router/api";
 let pred = [];
 let filelist = [];
 export default {

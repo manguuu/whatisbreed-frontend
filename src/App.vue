@@ -2,10 +2,8 @@
 import { RouterView } from "vue-router";
 </script>
 
-<script></script>
-
 <template>
-  <header>What is your dog?</header>
+  <header>What is breed?</header>
   <RouterView />
 </template>
 
