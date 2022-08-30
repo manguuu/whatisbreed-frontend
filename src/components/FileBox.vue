@@ -38,12 +38,11 @@ export default {
   props: ["uploaded"],
   methods: {
     fileFormatCheck(filename) {
-      var reg = /(.*?)\.(jpg|jpeg|png|gif|bmp)$/;
+      var reg = /(.*?)\.(jpg | jpeg | png | gif | bmp)$/;
       if (!filename.match(reg)) {
         alert("이미지 형식의 파일을 넣어주세요.");
       }
     },
-
     onChange() {
       filelist = [...this.$refs.file.files];
       this.handleFileChange();
@@ -152,8 +151,10 @@ export default {
   border: solid;
   border-color: #888888;
   border-radius: 15px;
+  border-width: max(0.3vw, 3px);
   background: var(--button-bg-color);
   min-width: 150px;
   max-width: 600px;
+  min-height: 30px;
 }
 </style>
