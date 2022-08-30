@@ -9,7 +9,7 @@
           type="file"
           @change="onChange"
           ref="file"
-          accept=".jpg,.jpeg,.png"
+          accept="image/*"
         />
         <label for="fileform"> {{ msg }} </label>
       </div>
@@ -38,7 +38,7 @@ export default {
   props: ["uploaded"],
   methods: {
     fileFormatCheck(filename) {
-      var reg = /(.*?)\.(jpg | jpeg | png | gif | bmp)$/;
+      const reg = /(.*?)\.(jpg|jpeg|png)$/;
       if (!filename.match(reg)) {
         alert("이미지 형식의 파일을 넣어주세요.");
       }
