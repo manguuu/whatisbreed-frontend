@@ -40,7 +40,7 @@ export default {
   mounted() {
     const route = useRoute();
     const filename = route.query.filename;
-    const path = "http://127.0.0.1:5173/api/static";
+    const path = "http://whatisbreed:80/static";
     const originPath = `${path}/originImg/${filename}`;
     const limePath = `${path}/limeImg/${filename}`;
     document.querySelector("#origin-box").src = originPath;
