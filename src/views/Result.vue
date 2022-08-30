@@ -9,7 +9,7 @@ console.log(pred);
 
 <template>
   <div class="result-box">
-    <div>
+    <div class="box">
       <img class="image-box" id="origin-box" />
       <div class="pred-box">
         <h1 id="breed-title">{{ pred[0].breed }}</h1>
@@ -20,7 +20,9 @@ console.log(pred);
       </div>
     </div>
     <ResultArrow class="items" id="arrow" />
-    <img class="image-box" id="lime-box" />
+    <div class="box">
+      <img class="image-box" id="lime-box" />
+    </div>
   </div>
 </template>
 
@@ -38,7 +40,7 @@ export default {
   mounted() {
     const route = useRoute();
     const filename = route.query.filename;
-    const path = "http://localhost:8000/static";
+    const path = "http://13.124.93.109:80/static";
     const originPath = `${path}/originImg/${filename}`;
     const limePath = `${path}/limeImg/${filename}`;
     document.querySelector("#origin-box").src = originPath;
@@ -49,14 +51,13 @@ export default {
 
 <style>
 #arrow {
-  top: 20%;
   width: 10%;
   height: 10%;
 }
 .result-box {
   margin: 4vw;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
 }
 
 .result-box .items {
@@ -64,11 +65,19 @@ export default {
 }
 
 #origin-box {
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 400px;
+  max-height: 400px;
   width: 30vw;
   height: 30vw;
 }
 
 #lime-box {
+  min-width: 250px;
+  min-height: 250px;
+  max-width: 600px;
+  max-height: 600px;
   width: 40vw;
   height: 40vw;
 }
@@ -76,15 +85,11 @@ export default {
 #breed-title {
   text-align: center;
   font-weight: bold;
-  font-size: 3.5vw;
+  font-size: max(3.5vw, 20px);
   color: #e9e9e9;
 }
 
 .image-box {
-  min-width: 100px;
-  min-height: 100px;
-  max-width: 600px;
-  max-height: 600px;
   border: 8px solid;
   border-radius: 16px;
   vertical-align: middle;
@@ -94,6 +99,6 @@ export default {
 .detail {
   text-align: right;
   margin-right: 10%;
-  font-size: 1.7vw;
+  font-size: max(1.7vw, 12px);
 }
 </style>

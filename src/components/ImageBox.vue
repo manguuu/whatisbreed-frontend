@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="imageBox"> -->
-    <img src="../assets/mint.jpeg" />
+  <img src="../assets/mint.jpeg" />
   <!-- </div> -->
 </template>
 
@@ -20,7 +20,7 @@
 
 .image-box {
   text-align: center;
-    min-width: 100px;
+  min-width: 100px;
   min-height: 100px;
   border: 10px solid;
   top: 0.8vw;

@@ -29,10 +29,8 @@ p {
 }
 
 #elipse {
-
-
-    font-size: 3vw;
-    padding: 5px;
+  font-size: 3vw;
+  padding: 5px;
   line-height: 40px;
   text-align: center;
   /* background-image: url("../assets/ellipse.png"); */

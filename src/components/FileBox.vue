@@ -1,21 +1,23 @@
 <template>
-  <div class="box" @dragover="dragover" @drop="drop">
-    <div class="elements">
-      <img src="../assets/dog.png" id="dog-logo" />
-      <h1 id="text">Drag & Drop to upload</h1>
-      <input
-        id="fileform"
-        type="file"
-        @change="onChange"
-        ref="file"
-        accept=".jpg,.jpeg,.png"
-      />
-      <label for="fileform"> {{ msg }} </label>
+  <div id="file-box">
+    <div class="box" @dragover="dragover" @drop="drop">
+      <div class="elements">
+        <img src="../assets/dog.png" id="dog-logo" />
+        <h1 id="text">Drag & Drop to upload</h1>
+        <input
+          id="fileform"
+          type="file"
+          @change="onChange"
+          ref="file"
+          accept=".jpg,.jpeg,.png"
+        />
+        <label for="fileform"> {{ msg }} </label>
+      </div>
     </div>
+    <button id="submit-btn" @click="buttonClick" v-if="this.flag === true">
+      Submit
+    </button>
   </div>
-  <button id="submit-btn" @click="buttonClick" v-if="this.flag === true">
-    Submit
-  </button>
 </template>
 
 <script>
@@ -94,6 +96,9 @@ export default {
 </script>
 
 <style scoped>
+#file-box {
+  text-align: center;
+}
 .box {
   background-image: url("../assets/input-box.png");
   background-size: cover;
@@ -140,13 +145,13 @@ export default {
     Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   margin-top: 20px;
-  width: 50vw;
-  height: 3vw;
+  width: 35vw;
+  height: 3.8vw;
   font-size: 2vw;
   color: #e9e9e9;
   border: solid;
   border-color: #888888;
-  border-radius: 10px;
+  border-radius: 15px;
   background: var(--button-bg-color);
   min-width: 150px;
   max-width: 600px;

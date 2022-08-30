@@ -2,9 +2,7 @@
 import { RouterView } from "vue-router";
 </script>
 
-<script>
-
-</script>
+<script></script>
 
 <template>
   <header>What is your dog?</header>
@@ -18,7 +16,7 @@ header {
   line-height: 1.5;
   margin: 3vw;
   font-size: min(3vw, 30px);
-  color: #E9E9E9;
+  color: #e9e9e9;
   font-weight: bold;
 }
 
