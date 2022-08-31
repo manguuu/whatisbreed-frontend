@@ -15,7 +15,7 @@ defineProps({
 </template>
 
 <script>
-import { API_URL } from "../router/api.js"
+import { postFile } from "../router/api.js";
 
 export default {
   methods: {
@@ -24,11 +24,7 @@ export default {
       console.log(file);
       const form_data = new FormData();
       form_data.append("file", file);
-      const response = await fetch(API_URL + "files/", {
-        method: "POST",
-        body: form_data,
-      });
-
+      const response = await postFile(form_data);
       if (response.ok) {
         const result = await response.json();
         this.msg = file.name;
