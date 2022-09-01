@@ -8,8 +8,9 @@
 
 <style>
 #lime-explanation {
+  margin: 20px;
   position: relative;
-  left: 57%;
+  left: 54%;
   text-align: center;
   width: 35vw;
   border: solid;
