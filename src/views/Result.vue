@@ -1,6 +1,7 @@
 <script setup>
 import ResultArrow from "@/components/Icons/ResultArrow.vue";
 import { useRoute } from "vue-router";
+import Hover from "@/components/Hover.vue";
 
 const route = useRoute();
 const pred = JSON.parse(route.query.pred);
@@ -8,20 +9,23 @@ console.log(pred);
 </script>
 
 <template>
-  <div class="result-box">
-    <div class="box">
-      <img class="image-box" id="origin-box" />
-      <div class="pred-box">
-        <h1 id="breed-title">{{ pred[0].breed }}</h1>
-        <div class="detail">
-          <p>{{ pred[0].breed }}: {{ (pred[0].prob * 100).toFixed(2) }}%</p>
-          <p>{{ pred[1].breed }}: {{ (pred[1].prob * 100).toFixed(2) }}%</p>
+  <div id="out">
+    <Hover />
+    <div class="result-box">
+      <div class="box">
+        <img class="image-box" id="origin-box" />
+        <div class="pred-box">
+          <h1 id="breed-title">{{ pred[0].breed }}</h1>
+          <div class="detail">
+            <p>{{ pred[0].breed }}: {{ (pred[0].prob * 100).toFixed(2) }}%</p>
+            <p>{{ pred[1].breed }}: {{ (pred[1].prob * 100).toFixed(2) }}%</p>
+          </div>
         </div>
       </div>
-    </div>
-    <ResultArrow class="items" id="arrow" />
-    <div class="box">
-      <img class="image-box" id="lime-box" />
+      <ResultArrow class="items" id="arrow" />
+      <div class="box" id="lime">
+        <img class="image-box" id="lime-box" />
+      </div>
     </div>
   </div>
 </template>
@@ -51,12 +55,16 @@ export default {
 </script>
 
 <style>
+#out {
+  margin: 0px;
+  text-align: end;
+}
 #arrow {
   width: 10%;
   height: 10%;
 }
 .result-box {
-  margin: 4vw;
+  margin: 0px;
   display: flex;
   align-items: center;
 }
