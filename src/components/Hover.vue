@@ -1,0 +1,36 @@
+<script setup>
+import LimeExplanation from "@/components/LimeExplanation.vue";
+</script>
+
+<template>
+  <div id="hidden" @mouseover="mouseOver" v-if="this.over === false">
+    <img src="../assets/question_mark.png" />
+  </div>
+  <LimeExplanation @mouseleave="mouseLeave" v-if="this.over === true" />
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      over: false,
+    };
+  },
+  methods: {
+    mouseOver() {
+      this.over = true;
+    },
+    mouseLeave() {
+      this.over = false;
+    },
+  },
+};
+</script>
+
+<style>
+
+#hidden img {
+  width: 30px;
+  height: 30px;
+}
+</style>
