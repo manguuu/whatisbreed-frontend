@@ -3,10 +3,10 @@ import LimeExplanation from "@/components/LimeExplanation.vue";
 </script>
 
 <template>
-  <div id="hidden" @mouseover="mouseOver" v-if="this.over === false">
+  <div id="hidden" @mouseover="mouseOver" v-if="over === false">
     <img src="../assets/question_mark.png" />
   </div>
-  <LimeExplanation @mouseleave="mouseLeave" v-if="this.over === true" />
+  <LimeExplanation @mouseleave="mouseLeave" v-if="over === true" />
 </template>
 
 <script>
