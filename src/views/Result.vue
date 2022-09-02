@@ -10,7 +10,7 @@ console.log(pred);
 
 <template>
   <div id="out">
-    <Hover />
+    <img src="../assets/left-arrow.png" id="back" @click="backClick" />
     <div class="result-box">
       <div class="box">
         <img class="image-box" id="origin-box" />
@@ -27,6 +27,7 @@ console.log(pred);
         <img class="image-box" id="lime-box" />
       </div>
     </div>
+    <Hover />
   </div>
 </template>
 
@@ -51,10 +52,24 @@ export default {
     document.querySelector("#origin-box").src = originPath;
     document.querySelector("#lime-box").src = limePath;
   },
+  methods: {
+    backClick() {
+      this.$router.push({
+        path: "/",
+      });
+    },
+  },
 };
 </script>
 
 <style>
+#back {
+  cursor: pointer;
+  margin-bottom: 1.5vw;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
 #out {
   margin: 0px;
   text-align: end;
