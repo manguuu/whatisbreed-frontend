@@ -7,8 +7,10 @@
 ## 🔗 [whatisbreed.com](https://whatisbreed.com/)
 <table> 
   <tr>
-    <td valign="top"><img width="100%" alt="스크린샷 2022-09-04 오후 2 26 42" src="https://user-images.githubusercontent.com/66214527/188298820-258d32db-b453-4ad4-8181-fa3693565c03.png"></td>
-    <td valign="top"><img width="100%" alt="스크린샷 2022-09-04 오후 2 26 55" src="https://user-images.githubusercontent.com/66214527/188298827-52a175cd-a75b-4276-b785-89f0f4502d0a.png">
+    <td valign="top"><img width="100%" alt="image" src="https://user-images.githubusercontent.com/66214527/188462404-e5905c68-abae-413a-8326-9387937048c2.png">
+</td>
+    <td valign="top"><img width="100%%" alt="image" src="https://user-images.githubusercontent.com/66214527/188461914-01b58837-6a20-473c-b343-505633384853.png">
+
 </td>
   </tr>
 </table>
