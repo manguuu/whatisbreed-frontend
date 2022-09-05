@@ -1,4 +1,4 @@
-export const API_URL = "http://127.0.0.1:8000/";
+export const API_URL = "https://whatisbreed.com/";
 
 export const getPred = async (filename) => {
   let res = await fetch(API_URL + "predict/" + filename);

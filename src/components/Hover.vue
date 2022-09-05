@@ -3,8 +3,8 @@ import LimeExplanation from "@/components/LimeExplanation.vue";
 </script>
 
 <template>
-  <div id="hidden" @mouseover="mouseOver" v-if="over === false">
-    <img src="../assets/question_mark.png" />
+  <div id="hidden" v-if="over === false">
+    <img src="../assets/question_mark.png" @mouseover="mouseOver" />
   </div>
   <LimeExplanation @mouseleave="mouseLeave" v-if="over === true" />
 </template>
@@ -28,7 +28,6 @@ export default {
 </script>
 
 <style>
-
 #hidden img {
   width: 30px;
   height: 30px;
