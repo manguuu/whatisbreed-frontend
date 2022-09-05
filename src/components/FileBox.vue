@@ -37,10 +37,13 @@ export default {
   props: ["uploaded"],
   methods: {
     fileFormatCheck(filename) {
+      filename = filename.toLowerCase();
       const reg = /(.*?)\.(jpg|jpeg|png)$/;
       if (!filename.match(reg)) {
-        alert("이미지 형식의 파일을 넣어주세요.");
+        alert("이미지 파일을 넣어주세요. (jpg, jpeg, png)");
+        return false;
       }
+      return true;
     },
     onChange() {
       filelist = [...this.$refs.file.files];
@@ -48,7 +51,7 @@ export default {
     },
     async handleFileChange() {
       const file = filelist[0];
-      this.fileFormatCheck(file.name);
+      if (!this.fileFormatCheck(file.name)) return;
       const form_data = new FormData();
       form_data.append("file", file);
       const res = await fetch(API_URL + "files/", {
